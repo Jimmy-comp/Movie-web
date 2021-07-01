@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.img-container {
+    text-align: center;
+}
+
+.thumbnail {
+    width: 75%;
+    height: relative;
+    padding: 5px 10px;
+}
+
+.highlightInfo {
+    line-height: 30px;
+    margin: 10px 30px;
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.highlightInfo p {
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.label {
+    width: 80px;
+}
+
+.MuiGrid-spacing-xs-1 {
+    margin: -1px !important;
+}
+
+.eachGenre {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    flex-wrap: wrap;
+    background-color: #242424;
+    padding: 0px 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.video {
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.yt_trailer {
+    width: 800px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.synopsis {
+    padding: 15px 100px;
+    text-align: justify;
+}
+    
+.read-or-hide{
+    color: yellow;
+    cursor: pointer;
+}
+
+.directorCast{
+    flex-grow: 1;
+    padding: 10px 100px;
+}
+
+.title {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.people {
+    display: flex;
+    justify-content: flex-start;
+    /* position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    transition-property: transform;
+    box-sizing: content-box; */
+}
+
+.people p {
+    margin: 0;
+    padding: 5px;
+}
