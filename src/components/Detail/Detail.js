@@ -122,7 +122,8 @@ const Detail = () => {
                                             <Grid item xs={9}>
                                                 <div className="img-container" style={{ width: '75%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {(data.multitrailers || '').map(m => (
+                                                        {(data.multitrailers || []).map(m => (
+
                                                             <iframe
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
@@ -131,6 +132,7 @@ const Detail = () => {
                                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                                 title="Embedded youtube"
                                                             />
+
                                                         ))}
 
                                                         {(data.screenShots || '').map((each, index) => (
@@ -179,7 +181,7 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="img-container" style={{ width: '75%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {(data.multitrailers || '').map(m => (
+                                                        {(data.multitrailers || []).map(m => (
                                                             <iframe
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
@@ -306,7 +308,7 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="img-container" style={{ width: '100%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {(data.multitrailers || '').map(m => (
+                                                        {(data.multitrailers || []).map(m => (
                                                             <iframe
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
