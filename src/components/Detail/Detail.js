@@ -58,7 +58,7 @@ const Detail = () => {
                                             {console.log('You are using laptop or desktop.')}
                                             <Grid item xs={3}>
                                                 <div className="img-container">
-                                                    <Image className="thumbnail" src={data.thumbnail} />
+                                                    <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data. name)}/>
                                                 </div>
 
                                                 <div className="highlightInfo">
@@ -204,7 +204,7 @@ const Detail = () => {
                                                 <Grid container>
                                                     <Grid item xs={6}>
                                                         <div className="img-container">
-                                                            <Image className="thumbnail" src={data.thumbnail} />
+                                                            <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data. name)}/>
                                                         </div>
                                                     </Grid>
 

@@ -6,8 +6,6 @@ import { Async } from "react-async";
 
 import Like from '@material-ui/icons/Favorite';
 
-// const sourceUrl = "https://api.hkmovie6.com/hkm/movies?type=showing";
-
 const loadAllMovie = async () => {
     const res = await fetch(`https://api.hkmovie6.com/hkm/movies?type=showing`, { Accept: "application/json" })
     if (!res.ok) throw new Error(res.statusText)
