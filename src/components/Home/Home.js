@@ -2,10 +2,8 @@ import React from "react";
 import './Home.css';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import MaterialIcon from 'react-google-material-icons';
 import { Async } from "react-async";
 
-import Grid from '@material-ui/core/Grid';
 import Like from '@material-ui/icons/Favorite';
 
 // const sourceUrl = "https://api.hkmovie6.com/hkm/movies?type=showing";
@@ -40,7 +38,7 @@ const Home = () => {
                                             <p className="posterName">{m.name}</p>
                                             <div className="movie-detail">
                                                 <p className="openDate">{m.openDate.substring(4, 15)}</p>
-                                                <p className="favCount"><Like style={{ fontSize: '16px' }} />&nbsp;{m.favCount}</p>
+                                                <p className="favCount"><Like style={{ fontSize: '16px' }} />&emsp;{m.favCount}</p>
 
                                             </div>
 
