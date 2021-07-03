@@ -122,7 +122,7 @@ const Detail = () => {
                                             <Grid item xs={9}>
                                                 <div className="img-container" style={{ width: '75%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {data.multitrailers.map(m => (
+                                                        {(data.multitrailers || '').map(m => (
                                                             <iframe
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
@@ -133,7 +133,7 @@ const Detail = () => {
                                                             />
                                                         ))}
 
-                                                        {data.screenShots.map((each, index) => (
+                                                        {(data.screenShots || '').map((each, index) => (
                                                             <div key={index} className="each-slide" style={{ backgroundImage: `url(${each})` }}>
                                                             </div>
                                                         ))}
@@ -179,7 +179,7 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="img-container" style={{ width: '75%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {data.multitrailers.map(m => (
+                                                        {(data.multitrailers || '').map(m => (
                                                             <iframe
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
@@ -190,7 +190,7 @@ const Detail = () => {
                                                             />
                                                         ))}
 
-                                                        {data.screenShots.map((each, index) => (
+                                                        {(data.screenShots || '').map((each, index) => (
                                                             <div key={index} className="each-slide" style={{ backgroundImage: `url(${each})` }}>
                                                             </div>
                                                         ))}
@@ -306,7 +306,7 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="img-container" style={{ width: '100%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {data.multitrailers.map(m => (
+                                                        {(data.multitrailers || '').map(m => (
                                                             <iframe
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
@@ -317,7 +317,7 @@ const Detail = () => {
                                                             />
                                                         ))}
 
-                                                        {data.screenShots.map((each, index) => (
+                                                        {(data.screenShots || '').map((each, index) => (
                                                             <div key={index} className="each-slide" style={{ backgroundImage: `url(${each})` }}>
                                                             </div>
                                                         ))}
@@ -417,23 +417,6 @@ const Detail = () => {
                                                 </div>
                                             </Grid>
                                         </MediaQuery>
-
-                                        {/* check whether is retina mon or not. */}
-                                        {/* <MediaQuery minResolution="2dppx">
-                                            {(matches) =>
-                                                matches
-                                                    ? <p>You are retina</p>
-                                                    : <p>You are not retina</p>
-                                            }
-                                        </MediaQuery> */}
-
-                                        {/* <MediaQuery orientation={'portrait'}>
-                                            {(matches) =>
-                                                matches
-                                                    ? <p>You are in portrait</p>
-                                                    : <p>You are in landscape</p>
-                                            }
-                                        </MediaQuery> */}
                                     </Grid>
                                 </Grid>
                             </Grid>
