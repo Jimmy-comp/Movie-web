@@ -29,9 +29,9 @@ const Home = () => {
                                         <Link style={{ textDecoration: 'none', color: "white" }} to={`/detail/${m.id}`}>
                                             <div className="img-container">
                                                 {m.thumbnail != null ? (
-                                                    <Image className="posterImg" alt={m.name} src={m.thumbnail} />
+                                                    <Image className="posterImg" alt={(m.engNormalAltNames || m. name)} src={m.thumbnail} />
                                                 ) : (
-                                                    <Image className="posterImg" alt={m.name} src={`${process.env.PUBLIC_URL}/dummy_logo.png`} />
+                                                    <Image className="posterImg" alt={(m.engNormalAltNames || m. name)} src={`${process.env.PUBLIC_URL}/dummy_logo.png`} />
                                                 )}
                                             </div>
 
