@@ -94,9 +94,6 @@ const Detail = () => {
                                                     </h2>
 
                                                     <Grid container>
-                                                        {/* {Object.keys(itemLayout).filter(key => data[key]).map(key => itemLayout[key](data[key])).map(console.log)} */}
-
-
                                                         <Grid container spacing={1}>
                                                             <p className="label">Date:</p>
 
@@ -139,7 +136,10 @@ const Detail = () => {
 
                                                         <Grid container spacing={1}>
                                                             <p><Star style={{ fontSize: '14px' }} /></p>
-                                                            <p style={{ color: 'yellow' }}>{((data.rating / data.rateCount * 5).toFixed(1) || 0)}</p>
+                                                            <p style={{ color: 'yellow' }}>
+                                                                {(data.rateCount || 0)}
+                                                                {/* {((data.rating / data.rateCount * 5).toFixed(1) || 0)} */}
+                                                            </p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
                                                             <p><Favorite style={{ fontSize: '14px' }} /></p>
@@ -289,7 +289,10 @@ const Detail = () => {
 
                                                                 <Grid container spacing={1}>
                                                                     <p><Star style={{ fontSize: '14px' }} /></p>
-                                                                    <p style={{ color: 'yellow' }}>{((data.rating / data.rateCount * 5).toFixed(1) || 0)}</p>
+                                                                    <p style={{ color: 'yellow' }}>
+                                                                        {(data.rateCount || 0)}
+                                                                        {/* {((data.rating / data.rateCount * 5).toFixed(1) || 0)} */}
+                                                                    </p>
                                                                     <p><Comment style={{ fontSize: '14px' }} /></p>
                                                                     <p style={{ color: 'yellow' }}>{data.commentCount}</p>
                                                                     <p><Favorite style={{ fontSize: '14px' }} /></p>
@@ -411,7 +414,11 @@ const Detail = () => {
 
                                                         <Grid container spacing={1}>
                                                             <p><Star style={{ fontSize: '14px' }} /></p>
-                                                            <p style={{ color: 'yellow' }}>{((data.rating / data.rateCount * 5).toFixed(1) || 0)}</p>
+
+                                                            <p style={{ color: 'yellow' }}>
+                                                                {(data.rateCount || 0)}
+                                                                {/* {((data.rating || 0) / (data.rateCount || 0) * 5).toFixed(1)} */}
+                                                            </p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
                                                             <p><Favorite style={{ fontSize: '14px' }} /></p>
