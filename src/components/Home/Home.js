@@ -22,8 +22,8 @@ const Home = () => {
                     return (
                         <div className="home">
                             <div className="container">
-                                {data.map(m =>
-                                    <div className="poster">
+                                {data.map((m, index) =>
+                                    <div key={index} className="poster">
                                         <Link style={{ textDecoration: 'none', color: "white" }} to={`/detail/${m.id}`}>
                                             <div className="img-container">
                                                 {m.thumbnail != null ? (

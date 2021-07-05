@@ -22,6 +22,28 @@ const loadTabbedMovie = async ({ movieId }) => {
     return res.json()
 };
 
+const itemLayout = {
+    openDate: data => {
+        return (
+            <Grid container spacing={1}>
+                <p className="label">Date:</p>
+
+                <p>{data.substring(3, 15)}</p>
+            </Grid>
+        )
+    },
+    duration: data => {
+        return (
+            <Grid container spacing={1}>
+                <p className="label">Duration:</p>
+
+                <p>{data} mins</p>
+            </Grid>
+        )
+    }
+
+};
+
 const Detail = () => {
     let { id } = useParams();
 
@@ -43,6 +65,8 @@ const Detail = () => {
 
     };
 
+
+
     return (
         <Async promiseFn={loadTabbedMovie} movieId={id}>
             {({ data, error, isPending }) => {
@@ -58,7 +82,7 @@ const Detail = () => {
                                             {console.log('You are using laptop or desktop.')}
                                             <Grid item xs={3}>
                                                 <div className="img-container">
-                                                    <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data. name)}/>
+                                                    <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data.name)} />
                                                 </div>
 
                                                 <div className="highlightInfo">
@@ -71,6 +95,9 @@ const Detail = () => {
                                                     </h2>
 
                                                     <Grid container>
+                                                        {/* {Object.keys(itemLayout).filter(key => data[key]).map(key => itemLayout[key](data[key])).map(console.log)} */}
+
+
                                                         <Grid container spacing={1}>
                                                             <p className="label">Date:</p>
 
@@ -92,11 +119,17 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p className="label">Genres:</p>
 
-                                                            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                                                                {(data.infoDict.Genre || '').split(', ').map(g => (
-                                                                    <p className="eachGenre">{g}</p>
-                                                                ))}
-                                                            </div>
+
+                                                            {(data.infoDict.Genre || '').split(', ').map((g, index) => (
+                                                                g ? (
+                                                                    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                                        <p key={index} className="eachGenre">{g}</p>
+                                                                    </div>
+                                                                ) : (
+                                                                    <span></span>
+                                                                )
+                                                            ))}
+
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
@@ -122,9 +155,9 @@ const Detail = () => {
                                             <Grid item xs={9}>
                                                 <div className="img-container" style={{ width: '75%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {(data.multitrailers || []).map(m => (
+                                                        {(data.multitrailers || []).map((m, index) => (
 
-                                                            <iframe
+                                                            <iframe key={index}
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
                                                                 frameBorder="0"
@@ -144,7 +177,7 @@ const Detail = () => {
 
                                                 <div className="synopsis">
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
-                                                    {data.synopsis != null ? (
+                                                    {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">
                                                             {isReadMore ? " ... read more" : "  show less"}
                                                         </span>
@@ -181,8 +214,8 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="img-container" style={{ width: '75%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {(data.multitrailers || []).map(m => (
-                                                            <iframe
+                                                        {(data.multitrailers || []).map((m, index) => (
+                                                            <iframe key={index}
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
                                                                 frameBorder="0"
@@ -204,7 +237,7 @@ const Detail = () => {
                                                 <Grid container>
                                                     <Grid item xs={6}>
                                                         <div className="img-container">
-                                                            <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data. name)}/>
+                                                            <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data.name)} />
                                                         </div>
                                                     </Grid>
 
@@ -240,11 +273,15 @@ const Detail = () => {
                                                                 <Grid container spacing={1}>
                                                                     <p className="label">Genres:</p>
 
-                                                                    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                                                                        {(data.infoDict.Genre || '').split(', ').map(g => (
-                                                                            <p className="eachGenre">{g}</p>
-                                                                        ))}
-                                                                    </div>
+                                                                    {(data.infoDict.Genre || '').split(', ').map((g, index) => (
+                                                                        g ? (
+                                                                            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                                                <p key={index} className="eachGenre">{g}</p>
+                                                                            </div>
+                                                                        ) : (
+                                                                            <span></span>
+                                                                        )
+                                                                    ))}
                                                                 </Grid>
 
                                                                 <Grid container spacing={1}>
@@ -272,7 +309,7 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="synopsis">
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
-                                                    {data.synopsis != null ? (
+                                                    {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">
                                                             {isReadMore ? " ... read more" : "  show less"}
                                                         </span>
@@ -308,8 +345,8 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="img-container" style={{ width: '100%', height: 'auto', margin: '0 auto' }}>
                                                     <Slide ref={React.createRef()} {...properties}>
-                                                        {(data.multitrailers || []).map(m => (
-                                                            <iframe
+                                                        {(data.multitrailers || []).map((m, index) => (
+                                                            <iframe key={index}
                                                                 className="yt_trailer"
                                                                 src={m.replace('watch?v=', 'embed/')}
                                                                 frameBorder="0"
@@ -360,11 +397,15 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p className="label">Genres:</p>
 
-                                                            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                                                                {(data.infoDict.Genre || '').split(', ').map(g => (
-                                                                    <p className="eachGenre">{g}</p>
-                                                                ))}
-                                                            </div>
+                                                            {(data.infoDict.Genre || '').split(', ').map((g, index) => (
+                                                                g ? (
+                                                                    <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                                                        <p key={index} className="eachGenre">{g}</p>
+                                                                    </div>
+                                                                ) : (
+                                                                    <span></span>
+                                                                )
+                                                            ))}
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
@@ -390,7 +431,7 @@ const Detail = () => {
                                             <Grid item xs={12}>
                                                 <div className="synopsis">
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
-                                                    {data.synopsis != null ? (
+                                                    {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">
                                                             {isReadMore ? " ... read more" : "  show less"}
                                                         </span>
@@ -411,8 +452,8 @@ const Detail = () => {
                                                         <p>
                                                             {data.infoDict.Director}
                                                         </p>
-                                                        {(data.infoDict.Cast || '').split(',').map(g => (
-                                                            <p>{g}</p>
+                                                        {(data.infoDict.Cast || '').split(',').map((g, index) => (
+                                                            <p key={index}>{g}</p>
                                                         ))}
 
                                                     </div>
@@ -422,12 +463,8 @@ const Detail = () => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-
                         </div>
-
-
                     )
-
                 }
                 return null
             }}
