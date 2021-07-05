@@ -5,8 +5,7 @@ import { Image } from 'react-bootstrap';
 import { Async } from "react-async";
 
 import Grid from '@material-ui/core/Grid';
-import Like from '@material-ui/icons/ThumbUp';
-import Unlike from '@material-ui/icons/ThumbDown';
+import Star from '@material-ui/icons/Star';
 import Favorite from '@material-ui/icons/Favorite';
 import Comment from '@material-ui/icons/ForumOutlined';
 
@@ -139,10 +138,8 @@ const Detail = () => {
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
-                                                            <p><Like style={{ fontSize: '14px' }} /></p>
-                                                            <p style={{ color: 'yellow' }}>{(data.rating || 0)}</p>
-                                                            <p><Unlike style={{ fontSize: '14px' }} /></p>
-                                                            <p style={{ color: 'yellow' }}>{(data.rateCount - data.rating || 0)}</p>
+                                                            <p><Star style={{ fontSize: '14px' }} /></p>
+                                                            <p style={{ color: 'yellow' }}>{((data.rating / data.rateCount * 5).toFixed(1) || 0)}</p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
                                                             <p><Favorite style={{ fontSize: '14px' }} /></p>
@@ -291,10 +288,8 @@ const Detail = () => {
                                                                 </Grid>
 
                                                                 <Grid container spacing={1}>
-                                                                    <p><Like style={{ fontSize: '14px' }} /></p>
-                                                                    <p style={{ color: 'yellow' }}>{(data.rating || 0)}</p>
-                                                                    <p><Unlike style={{ fontSize: '14px' }} /></p>
-                                                                    <p style={{ color: 'yellow' }}>{(data.rateCount - data.rating || 0)}</p>
+                                                                    <p><Star style={{ fontSize: '14px' }} /></p>
+                                                                    <p style={{ color: 'yellow' }}>{((data.rating / data.rateCount * 5).toFixed(1) || 0)}</p>
                                                                     <p><Comment style={{ fontSize: '14px' }} /></p>
                                                                     <p style={{ color: 'yellow' }}>{data.commentCount}</p>
                                                                     <p><Favorite style={{ fontSize: '14px' }} /></p>
@@ -415,10 +410,8 @@ const Detail = () => {
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
-                                                            <p><Like style={{ fontSize: '14px' }} /></p>
-                                                            <p style={{ color: 'yellow' }}>{(data.rating || 0)}</p>
-                                                            <p><Unlike style={{ fontSize: '14px' }} /></p>
-                                                            <p style={{ color: 'yellow' }}>{(data.rateCount - data.rating || 0)}</p>
+                                                            <p><Star style={{ fontSize: '14px' }} /></p>
+                                                            <p style={{ color: 'yellow' }}>{((data.rating / data.rateCount * 5).toFixed(1) || 0)}</p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
                                                             <p><Favorite style={{ fontSize: '14px' }} /></p>
