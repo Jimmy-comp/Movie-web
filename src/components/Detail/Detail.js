@@ -64,8 +64,6 @@ const Detail = () => {
 
     };
 
-
-
     return (
         <Async promiseFn={loadTabbedMovie} movieId={id}>
             {({ data, error, isPending }) => {
@@ -103,7 +101,11 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p className="label">Duration:</p>
 
-                                                            <p>{data.duration} mins</p>
+                                                            {data.duration ? (
+                                                                <p>{data.duration} mins</p>
+                                                            ) : (
+                                                                <span></span>
+                                                            )}
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
@@ -258,7 +260,11 @@ const Detail = () => {
                                                                 <Grid container spacing={1}>
                                                                     <p className="label">Duration:</p>
 
-                                                                    <p>{data.duration} mins</p>
+                                                                    {data.duration ? (
+                                                                        <p>{data.duration} mins</p>
+                                                                    ) : (
+                                                                        <span></span>
+                                                                    )}
                                                                 </Grid>
 
                                                                 <Grid container spacing={1}>
@@ -382,8 +388,11 @@ const Detail = () => {
 
                                                         <Grid container spacing={1}>
                                                             <p className="label">Duration:</p>
-
-                                                            <p>{data.duration} mins</p>
+                                                            {data.duration ? (
+                                                                <p>{data.duration} mins</p>
+                                                            ) : (
+                                                                <span></span>
+                                                            )}
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
