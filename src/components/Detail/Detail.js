@@ -139,8 +139,7 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p><Star style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>
-                                                                {(data.rateCount || 0)}
-                                                                {/* {((data.rating / data.rateCount * 5).toFixed(1) || 0)} */}
+                                                                {(((data.rating / data.rateCount * 5) || 0).toFixed(1))}
                                                             </p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
@@ -296,8 +295,7 @@ const Detail = () => {
                                                                 <Grid container spacing={1}>
                                                                     <p><Star style={{ fontSize: '14px' }} /></p>
                                                                     <p style={{ color: 'yellow' }}>
-                                                                        {(data.rateCount || 0)}
-                                                                        {/* {((data.rating / data.rateCount * 5).toFixed(1) || 0)} */}
+                                                                        {(((data.rating / data.rateCount * 5) || 0).toFixed(1))}
                                                                     </p>
                                                                     <p><Comment style={{ fontSize: '14px' }} /></p>
                                                                     <p style={{ color: 'yellow' }}>{data.commentCount}</p>
@@ -425,8 +423,7 @@ const Detail = () => {
                                                             <p><Star style={{ fontSize: '14px' }} /></p>
 
                                                             <p style={{ color: 'yellow' }}>
-                                                                {(data.rateCount || 0)}
-                                                                {/* {((data.rating || 0) / (data.rateCount || 0) * 5).toFixed(1)} */}
+                                                                {(((data.rating / data.rateCount * 5) || 0).toFixed(1))}
                                                             </p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
