@@ -21,28 +21,6 @@ const loadTabbedMovie = async ({ movieId }) => {
     return res.json()
 };
 
-const itemLayout = {
-    openDate: data => {
-        return (
-            <Grid container spacing={1}>
-                <p className="label">Date:</p>
-
-                <p>{data.substring(3, 15)}</p>
-            </Grid>
-        )
-    },
-    duration: data => {
-        return (
-            <Grid container spacing={1}>
-                <p className="label">Duration:</p>
-
-                <p>{data} mins</p>
-            </Grid>
-        )
-    }
-
-};
-
 const Detail = () => {
     let { id } = useParams();
 
@@ -111,12 +89,16 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p className="label">Category:</p>
 
-                                                            <p className="eachGenre">{data.infoDict.Category}</p>
+                                                            {data.infoDict.Category !== "---" ? (
+                                                                <p className="eachGenre">{data.infoDict.Category}</p>
+                                                            ) : (
+                                                                <span></span>
+                                                            )}
+
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
                                                             <p className="label">Genres:</p>
-
 
                                                             {(data.infoDict.Genre || '').split(', ').map((g, index) => (
                                                                 g ? (
@@ -174,6 +156,11 @@ const Detail = () => {
                                                 </div>
 
                                                 <div className="synopsis">
+                                                    <div className="title">
+                                                        <h4 style={{ margin: '0' }}>
+                                                            Synopsis
+                                                        </h4>
+                                                    </div>
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
                                                     {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">
