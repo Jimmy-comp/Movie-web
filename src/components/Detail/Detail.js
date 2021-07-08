@@ -31,9 +31,9 @@ const Detail = () => {
     };
 
     const properties = {
-        duration: 5000,
-        autoplay: true,
-        transitionDuration: 500,
+        duration: 4000,
+        autoplay: false,
+        transitionDuration: 400,
         arrows: true,
         infinite: true,
         easing: "ease",
@@ -57,7 +57,11 @@ const Detail = () => {
                                             {console.log('You are using laptop or desktop.')}
                                             <Grid item xs={3}>
                                                 <div className="img-container">
-                                                    <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data.name)} />
+                                                    {data.thumbnail != null ? (
+                                                        <Image className="posterImg" alt={data.engNormalAltNames} src={data.thumbnail} />
+                                                    ) : (
+                                                        <Image className="posterImg" alt={data.engNormalAltNames} src={"https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} />
+                                                    )}
                                                 </div>
 
                                                 <div className="highlightInfo">
@@ -121,7 +125,7 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p><Star style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>
-                                                                {(((data.rating / data.rateCount * 5) || 0).toFixed(1))}
+                                                                {(((data.rating / data.rateCount) || 0).toFixed(1))}
                                                             </p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
@@ -156,11 +160,11 @@ const Detail = () => {
                                                 </div>
 
                                                 <div className="synopsis">
-                                                    <div className="title">
+                                                    {<div className="title">
                                                         <h4 style={{ margin: '0' }}>
                                                             Synopsis
                                                         </h4>
-                                                    </div>
+                                                    </div>}
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
                                                     {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">
@@ -222,7 +226,11 @@ const Detail = () => {
                                                 <Grid container>
                                                     <Grid item xs={6}>
                                                         <div className="img-container">
-                                                            <Image className="thumbnail" src={data.thumbnail} alt={(data.engNormalAltNames || data.name)} />
+                                                            {data.thumbnail != null ? (
+                                                                <Image className="posterImg" alt={data.engNormalAltNames} src={data.thumbnail} />
+                                                            ) : (
+                                                                <Image className="posterImg" alt={data.engNormalAltNames} src={"https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} />
+                                                            )}
                                                         </div>
                                                     </Grid>
 
@@ -256,7 +264,12 @@ const Detail = () => {
                                                                 <Grid container spacing={1}>
                                                                     <p className="label">Category:</p>
 
-                                                                    <p className="eachGenre">{data.infoDict.Category}</p>
+                                                                    {data.infoDict.Category !== "---" ? (
+                                                                        <p className="eachGenre">{data.infoDict.Category}</p>
+                                                                    ) : (
+                                                                        <span></span>
+                                                                    )}
+
                                                                 </Grid>
 
                                                                 <Grid container spacing={1}>
@@ -271,6 +284,7 @@ const Detail = () => {
                                                                             <span></span>
                                                                         )
                                                                     ))}
+
                                                                 </Grid>
 
                                                                 <Grid container spacing={1}>
@@ -282,7 +296,7 @@ const Detail = () => {
                                                                 <Grid container spacing={1}>
                                                                     <p><Star style={{ fontSize: '14px' }} /></p>
                                                                     <p style={{ color: 'yellow' }}>
-                                                                        {(((data.rating / data.rateCount * 5) || 0).toFixed(1))}
+                                                                        {(((data.rating / data.rateCount) || 0).toFixed(1))}
                                                                     </p>
                                                                     <p><Comment style={{ fontSize: '14px' }} /></p>
                                                                     <p style={{ color: 'yellow' }}>{data.commentCount}</p>
@@ -297,6 +311,11 @@ const Detail = () => {
 
                                             <Grid item xs={12}>
                                                 <div className="synopsis">
+                                                    {<div className="title">
+                                                        <h4 style={{ margin: '0' }}>
+                                                            Synopsis
+                                                        </h4>
+                                                    </div>}
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
                                                     {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">
@@ -373,6 +392,7 @@ const Detail = () => {
 
                                                         <Grid container spacing={1}>
                                                             <p className="label">Duration:</p>
+
                                                             {data.duration ? (
                                                                 <p>{data.duration} mins</p>
                                                             ) : (
@@ -383,7 +403,12 @@ const Detail = () => {
                                                         <Grid container spacing={1}>
                                                             <p className="label">Category:</p>
 
-                                                            <p className="eachGenre">{data.infoDict.Category}</p>
+                                                            {data.infoDict.Category !== "---" ? (
+                                                                <p className="eachGenre">{data.infoDict.Category}</p>
+                                                            ) : (
+                                                                <span></span>
+                                                            )}
+
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
@@ -398,6 +423,7 @@ const Detail = () => {
                                                                     <span></span>
                                                                 )
                                                             ))}
+
                                                         </Grid>
 
                                                         <Grid container spacing={1}>
@@ -408,9 +434,8 @@ const Detail = () => {
 
                                                         <Grid container spacing={1}>
                                                             <p><Star style={{ fontSize: '14px' }} /></p>
-
                                                             <p style={{ color: 'yellow' }}>
-                                                                {(((data.rating / data.rateCount * 5) || 0).toFixed(1))}
+                                                                {(((data.rating / data.rateCount) || 0).toFixed(1))}
                                                             </p>
                                                             <p><Comment style={{ fontSize: '14px' }} /></p>
                                                             <p style={{ color: 'yellow' }}>{data.commentCount}</p>
@@ -423,6 +448,11 @@ const Detail = () => {
 
                                             <Grid item xs={12}>
                                                 <div className="synopsis">
+                                                    {<div className="title">
+                                                        <h4 style={{ margin: '0' }}>
+                                                            Synopsis
+                                                        </h4>
+                                                    </div>}
                                                     {isReadMore ? (data.synopsis || '').slice(0, 100) : (data.synopsis || '')}
                                                     {data.synopsis ? (
                                                         <span onClick={toggleReadMore} className="read-or-hide">

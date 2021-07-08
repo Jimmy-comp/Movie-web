@@ -29,7 +29,7 @@ const Home = () => {
                                                 {m.thumbnail != null ? (
                                                     <Image className="posterImg" alt={m.engNormalAltNames} src={m.thumbnail} />
                                                 ) : (
-                                                    <Image className="posterImg" alt={m.engNormalAltNames} src={`${process.env.PUBLIC_URL}/dummy_logo.png`} />
+                                                    <Image className="posterImg" alt={m.engNormalAltNames} src={"https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"} />
                                                 )}
                                             </div>
 
